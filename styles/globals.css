@@ -1,26 +1,75 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main-pos {
+  position: relative;
+}
+.cloud_one {
+  position: absolute;
+  background-size: contain;
+  transform: translateX(0%);
+  animation: cloud_one 30s infinite;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.cloud_two {
+  position: absolute;
+  background-size: contain;
+  transform: translateX(0%);
+  animation: cloud_two 18.5s infinite;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* css keyframes */
+@keyframes cloud_one {
+  0% {
+    transform: translateX(200%);
+    visibility: hidden;
+    opacity: 0;
   }
-  body {
-    color: white;
-    background: black;
+  20% {
+    visibility: visible;
+    opacity: 1;
   }
+  80% {
+    visibility: visible;
+    opacity: 1;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(10%);
+  }
+}
+
+@keyframes cloud_two {
+  0% {
+    transform: translateX(10%);
+    visibility: hidden;
+    opacity: 0;
+  }
+  20% {
+    visibility: visible;
+    opacity: 1;
+  }
+  80% {
+    visibility: visible;
+    opacity: 1;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-200%);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #150426;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #e0c0ff;
+  border-radius: 100vw;
 }
