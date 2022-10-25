@@ -44,7 +44,7 @@ export default NextAuth({
       name: 'Credentials',
       async authorize(credentials, req) {
         dbConnect().catch((error) => {
-          return error;
+          return error.json({ message: 'Unable to connect' });
         });
         const result = await User.findOne({ email: credentials.email });
         if (!result) {
@@ -69,5 +69,5 @@ export default NextAuth({
       },
     }),
   ],
-  secret: 'B9/vlarLOmrKMxcjK66ZhMmqqvoOxkhP2je7uk0HPZE=',
+  secret: process.env.NEXTAUTH_SECRET,
 });
